@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uliczne komplementy</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+
+</head>
+<body>
+    <nav>
+        <i class="fa fa-instagram fa-lg" aria-hidden="true" id="ig-icon"></i>
+        <p id="#ig">Instagram</p>
+    </nav>
+    <div class="maincontainer">
+        <header> <p  style="color: black">Uliczne 
+            <img src="logo.png" width="100px" height="100px"></p>komplementy</header>
+        <div class="card-container">
+            <div id="card1" class="card">
+                <div class="inside-card">
+                    <p class="card-text">Lorem ipsum</p>
+                </div>
+            </div>
+            <div id="card1back" class="card back">
+                <p class="back-text">nie wiem zabije sie</p>
+            </div>
+            <div id="card2" class="card">
+                <div class="inside-card">
+                    <p class="card-text">Lorem ipsum</p>
+                </div>
+            </div>
+            <div id="card2back" class="card back">
+                <p class="back-text">nie wiem zabije sie</p>
+            </div>
+            <div id="card3" class="card">
+                <div class="inside-card">
+                    <p class="card-text">Lorem ipsum</p>
+                </div>
+            </div>
+            <div id="card3back" class="card back">
+                <p class="back-text">nie wiem zabije sie</p>
+            </div>
+            <div id="card4" class="card">
+                <div class="inside-card">
+                    <p class="card-text">Lorem ipsum</p>
+                </div>
+            </div>
+            <div id="card4back" class="card back">
+                <p class="back-text">nie wiem zabije sie</p>
+            </div>
+            <div id="card5" class="card">
+                <div class="inside-card">
+                    <p class="card-text">Lorem ipsum</p>
+                </div>
+            </div>
+            <div id="card5back" class="card back">
+                <p class="back-text">nie wiem zabije sie</p>
+            </div>
+
+
+            <div id="maincard" class="card">
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+        let idleTimer;
+        const idleTimeLimit = 5000;
+        const cards = document.querySelectorAll('.card:not(.back)'); 
+        const cardsBack = document.querySelectorAll('.back');
+        let animationInProgress = false;
+
+        const resetIdleTimer = () => {
+            if (animationInProgress) return;
+
+            clearTimeout(idleTimer);
+
+            cards.forEach((card, index) => {
+                card.style.opacity = "1";
+
+            if (cardsBack[index]) {
+                cardsBack[index].style.opacity = "0";
+                cardsBack[index].style.visibility = "hidden";
+                cardsBack[index].style.transform = "translateY(0)"; 
+            }
+            });
+
+            idleTimer = setTimeout(triggerIdleAnimation, idleTimeLimit);
+        };
+
+    const triggerIdleAnimation = () => {
+        if (animationInProgress) return;
+
+        animationInProgress = true;
+
+    
+        cards.forEach((card, index) => {
+            card.style.opacity = "0";
+            setTimeout(() => {
+                if (cardsBack[index]) { 
+                    cardsBack[index].style.visibility = "visible"; 
+                    cardsBack[index].style.opacity = "1";
+                
+                }
+            }, 300); 
+        });
+
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                if (cardsBack[index]) { 
+                    cardsBack[index].style.transform = "rotate(0deg)";
+                    cardsBack[index].style.transform = "translateY(-100vh)"
+                }
+            }, 1500);
+        });
+
+        animationInProgress = false;
+    };
+
+    window.addEventListener('mousemove', resetIdleTimer);
+    window.addEventListener('keypress', resetIdleTimer);
+    window.addEventListener('scroll', resetIdleTimer);
+
+    resetIdleTimer();
+
+    </script>
+
+    <div class="about-us">
+        <p>Lorem ipsum</p>
+        <div class="about-us-card">
+            
+        </div>
+    </div>
+
+    <footer>
+        Strona stworzona w ramach projektu zwolnieni z teorii
+    </footer>
+</body>
+</html>
