@@ -11,6 +11,16 @@
     user-select: none;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
 
 nav {
     display: flex;
@@ -28,6 +38,8 @@ nav {
     background-color: #f56178;
     border-bottom: 1px solid white;
     align-items: center;
+    overflow: hidden;
+    
 }
 
 #ig-icon {
@@ -35,6 +47,10 @@ nav {
     padding: 10px; 
     border-radius: 10px;
     margin-right: 10px;
+}
+
+#ig-container {
+    animation: 0.6s ease-out 0s 1 slideInRight;
 }
 
 .maincontainer {
@@ -172,7 +188,7 @@ header {
 }
 
 #card1:hover, #card2:hover, #card3:hover, #card4:hover, #card5:hover   {
-    transform: rotate(5deg) scale(1.05);
+    transform: rotate(0deg) scale(1.05);
     transition: transform 0.2s ease;
     z-index: 1;
 }
@@ -193,6 +209,28 @@ header {
 .show-back {
     visibility: visible; 
     opacity: 1; 
+}
+
+#about-us {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: #e84d65;
+    font-size: 50px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    padding-top: 70px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.about-us-card {
+    margin: auto;
+    width: 35%;
+    height: auto;
+    aspect-ratio: 1;
+    border: 1px solid black;
 }
 
 @media screen and (max-width: 1300px) {
@@ -226,6 +264,12 @@ header {
     #maincard {
         width: 25%;
     }
+    .about-us-text {
+        font-size: 30px;
+    }
+    .about-us-card {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -251,6 +295,16 @@ header {
     }
   }
 
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
 @keyframes popout {
     from {
         transform: translate(-50%, -50%) scale(0);
@@ -274,28 +328,6 @@ header {
     100%{
         visibility: visible;
     }
-}
-
-.about-us {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    color: #e84d65;
-    font-size: 50px;
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-    padding-top: 70px;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.about-us-card {
-    margin: auto;
-    width: 35%;
-    height: auto;
-    aspect-ratio: 1;
-    border: 1px solid black;
 }
 
 @keyframes float {
