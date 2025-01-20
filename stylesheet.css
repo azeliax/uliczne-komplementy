@@ -227,12 +227,21 @@ header {
     pointer-events: none;
 }
 
+.heart {
+    position: absolute;
+    pointer-events: none;
+    animation: float-hearts 4s;
+    z-index: -1;
+}
+
 .about-us-card {
     margin: auto;
     width: 35%;
     height: auto;
     aspect-ratio: 1;
     border: 1px solid black;
+    background-color: white;
+    z-index: 100;
 }
 
 @media screen and (max-width: 1300px) {
@@ -350,6 +359,17 @@ header {
     }
 }
 
+@keyframes float-hearts {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
 footer {
     width: 100%;
     height: 14.5vh;
@@ -359,3 +379,5 @@ footer {
     font-size: 20px;
     padding: 30px;
 }
+
+

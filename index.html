@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uliczne komplementy</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
@@ -156,6 +157,40 @@
             
         </div>
     </div>
+    <script>
+        var hearts = 70;
+
+        var container, containerWidth, containerHeight;
+
+        function initHearts() {
+            container = document.getElementById("about-us");
+            containerWidth = container.offsetWidth - 100;
+            containerHeight = container.offsetHeight - 100;
+
+            for (let i = 0; i < hearts; i++) {
+                let heart = document.createElement("div");
+                heart.className = "heart";
+                heart.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="50px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800">
+                        <g fill="pink" stroke-width="0" stroke="pink" class="heart">
+                            <path d="M401.3986013986014 384.6153846153847C546.503508027617 193.00699156647795 753.8461440293104 437.76223413427397 400 700 46.15385597068962 437.76223413427397 253.49649197238296 193.00699156647795 401.3986013986014 384.6153846153847Z" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>`;
+                container.appendChild(heart);
+
+                heart.style.left = Math.random() * containerWidth + "px";
+                heart.style.top = Math.random() * containerHeight + "px";
+                
+            }
+        }
+
+        function positionHeart(index) {
+            herz[index].style.left = herzx[index] + "px";
+            herz[index].style.top = herzy[index] + "px";
+        }
+
+        window.onload = initHearts;
+    </script>
     <footer>
         <img src="zwolnieni.png" height="100px">
     </footer>
