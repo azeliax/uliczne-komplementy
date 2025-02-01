@@ -158,16 +158,17 @@
         </div>
     </div>
     <script>
-        var hearts = 70;
 
         var container, containerWidth, containerHeight;
+        const hearts = [];
+        var heartCount = 70;
 
         function initHearts() {
             container = document.getElementById("about-us");
             containerWidth = container.offsetWidth - 100;
             containerHeight = container.offsetHeight - 100;
 
-            for (let i = 0; i < hearts; i++) {
+            for (let i = 0; i < heartCount; i++) {
                 let heart = document.createElement("div");
                 heart.className = "heart";
                 heart.innerHTML = `
@@ -177,17 +178,22 @@
                         </g>
                     </svg>`;
                 container.appendChild(heart);
-
+                hearts.push(heart);
+                heart.style.position = "absolute";
                 heart.style.left = Math.random() * containerWidth + "px";
                 heart.style.top = Math.random() * containerHeight + "px";
-                
+                heart.style.transition = "top 5s linear";
+                moveHearts(heart);
             }
         }
 
-        function positionHeart(index) {
-            herz[index].style.left = herzx[index] + "px";
-            herz[index].style.top = herzy[index] + "px";
-        }
+        
+    function moveHearts(heart) {
+        setTimeout(() => {
+            heart.style.top = "-100px";
+        }, Math.random() * 3000);
+    }
+
 
         window.onload = initHearts;
     </script>
